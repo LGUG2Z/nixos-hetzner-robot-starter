@@ -16,7 +16,7 @@ in other package managers.
 
 `unstable-packages` is for packages that you want to always keep at the latest
 released versions, and `stable-packages` is for packages that you want to track
-with the current release of NixOS (currently 23.05).
+with the current release of NixOS (currently 23.11).
 
 If you want to update the versions of the available `unstable-packages`, run
 `nix flake update` to pull the latest version of the Nixpkgs repository and
@@ -36,8 +36,7 @@ This starter is a lightly-opinionated take on a productive terminal-driven
 development environment based on my own preferences. However, it is trivial to
 customize to your liking both by removing and adding tools that you prefer.
 
-* The default editor is initially `nvim`, which is switched by the end of the
-  quickstart to `lvim` ([LunarVim](https://lunarvim.org))
+* The default editor is `lvim`
 * The default shell is `zsh`
 * `docker` is enabled by default
 * The prompt is [Starship](https://starship.rs/)
@@ -57,6 +56,8 @@ customize to your liking both by removing and adding tools that you prefer.
   [sensible`$WORDCHARS`](https://lgug2z.com/articles/sensible-wordchars-for-most-developers/)
 
 ## Quickstart
+
+[![Watch the walkthrough video](https://img.youtube.com/vi/nlX8g0NXW1M/hqdefault.jpg)](https://www.youtube.com/watch?v=nlX8g0NXW1M)
 
 * Order a server on Hetzner Robot
     * For this tutorial, I am using an [AX41-NVMe](https://www.hetzner.com/dedicated-rootserver/ax41-nvme)
@@ -91,13 +92,7 @@ Host key for <ip_address> has changed and you have requested strict checking.
 Host key verification failed.
 ```
 * Now you can SSH into the server
-* Install LunarVim on the server (select "no" for all dependency prompts)
-```bash
-LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
-```
-* Run `lvim` once on the server and let the long first-time setup run to completion
-* You can now set `sessionVariables.EDITOR = "lvim";` in [home.nix](home.nix) on your local machine
-* In a local terminal window, apply the updated configuration to the remote server
+* In a local terminal window, you can apply updated configurations to the remote server
 ```bash
 nix run github:serokell/deploy-rs -- --remote-build -s .#robot
 ```

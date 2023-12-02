@@ -22,6 +22,7 @@
     htop
     jq
     killall
+    lunarvim
     mosh
     neovim
     procs
@@ -49,7 +50,7 @@
     go
     lua
     nodejs
-    python
+    python3
     typescript
 
     # rust stuff
@@ -99,7 +100,7 @@ in {
     homeDirectory = "/home/${username}";
 
     # FIXME: set your preferred $EDITOR
-    sessionVariables.EDITOR = "${pkgs.neovim}/bin/nvim";
+    sessionVariables.EDITOR = "lvim";
     # FIXME: set your preferred $SHELL
     sessionVariables.SHELL = "/etc/profiles/per-user/${username}/bin/zsh";
   };
